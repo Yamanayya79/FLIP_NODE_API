@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "yama": "nodemon app.js"
+    "yama": "nodemon index.js"
   },
   "keywords": [],
   "author": "yamanayya",
