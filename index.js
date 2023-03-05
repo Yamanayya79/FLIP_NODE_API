@@ -14,6 +14,12 @@ let db;
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+app.get('/',(req,res)=>{
+    db.collection('Wel come FLIP_KART Node Api').find().toArray((err,data)=>{
+        if(err) throw err;
+        res.send(data)
+    })
+})
 
 app.get('/dress',(req,res)=>{
     db.collection('Dress').find().toArray((err,data)=>{
