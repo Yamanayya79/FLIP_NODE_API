@@ -6,7 +6,7 @@ let dotenv = require('dotenv');
 let bodyParser = require('body-parser');
 dotenv.config()
 let MongoClint = Mongo.MongoClient;
-let MongoUrl = "mongodb+srv://YamanayyaBG:Yama1234@flip-kart.gvmpppq.mongodb.net/Flip-kart?retryWrites=true&w=majority"
+let MongoUrl = "mongodb+srv://YamanayyaG:Yama1234@flip-kart.gvmpppq.mongodb.net/FlipkartApi?retryWrites=true&w=majority"
 let Port = process.env.PORT || 9000
 let db;
 
@@ -101,7 +101,7 @@ app.get('/kitchenDetiles', (req, res) => {
 })
 MongoClint.connect(MongoUrl, { useNewUrlParser: true }, (err, data) => {
     if (err) console.log("error while connecting db")
-    db = data.db('Flip-kart')
+    db = data.db('FlipkartApi')
     app.listen(Port, () => {
         console.log(`Server started on ${Port}`)
     })
