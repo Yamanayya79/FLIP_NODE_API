@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.get('/',(req,res)=>{
         res.send("WEL COME TO FLIPKART NODE API")
     })
-})
+
 
 app.get('/dress',(req,res)=>{
     db.collection('Dress').find().toArray((err,data)=>{
