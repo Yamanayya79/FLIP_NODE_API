@@ -32,7 +32,7 @@ app.get('/Electronics', (req, res) => {
     if(id){
      query={product_id:id}
     }
-    db.collection('Electronics').find(query).toArray((err, data) => {
+    db.collection('Electronic').find(query).toArray((err, data) => {
         if (err) console.log('error while connecting collection')
         res.send(data)
     })
