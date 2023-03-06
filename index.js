@@ -88,7 +88,7 @@ app.get('/Products', (req, res) => {
     let query ={}
     let id=Number(req.query.id)
     if(id){
-     query={producttype_id:id}
+     query={product_id:id}
     }
     db.collection('Products').find(query).toArray((err, data) => {
         if (err) throw err;
