@@ -107,6 +107,12 @@ app.get('/Kitchen', (req, res) => {
         res.send(data)
     })
 })
+app.post('/Placeorder',(req,res)=>{
+   db.collection('orders').insert(req.body ,(err,data)=>{
+    if (err) throw err;
+    res.send('Order placed success')
+   })
+})
 // app.get('/kitchenDetiles', (req, res) => {
 //    let query ={}
 //    let id=Number(req.query.id)
