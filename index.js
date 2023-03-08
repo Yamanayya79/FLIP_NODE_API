@@ -113,6 +113,18 @@ app.post('/Placeorder',(req,res)=>{
     res.send('Order placed success')
    })
 })
+app.get('/Filter/:Proid', (req, res) => {
+let query={}
+let Proid=Number(req.params.Proid)
+let lcost =Number(req.query.lcost)
+let hcost=Number(req.query.hcost)
+if(lcost && hcost){
+    query={
+        "product_id":Proid,
+        $and:[{cost:{$gt:lcost,$lt:hcost}}]
+    }
+}
+})
 // app.get('/kitchenDetiles', (req, res) => {
 //    let query ={}
 //    let id=Number(req.query.id)
