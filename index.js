@@ -124,6 +124,29 @@ app.post('/Placeorder',(req,res)=>{
 //         res.send(data)
 //     })
 // })
+app.post('/ProductList',(req,res) => {
+    if(Array.isArray(req.body.id)){
+        db.collection('Products').find({product_id:{$in:req.body.id}}).toArray((err,result) => {
+            if(err) throw err;
+            res.send(result)
+        })
+    }else{
+        res.send('Invalid Input')
+    }
+})
+app.get('/viewOrder',(req,res) => {
+    let email = req.query.email;
+    let query = {};
+    if(email){
+        query={email:email}
+    }else{
+        query={}
+    }
+    db.collection('orders').find(query).toArray((err,result) => {
+        if(err) throw err;
+        res.send(result)
+    })
+})
 MongoClint.connect(MongoUrl, { useNewUrlParser: true }, (err, data) => {
     if (err) console.log("error while connecting db")
     db = data.db('FlipkartApi')
