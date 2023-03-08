@@ -108,7 +108,7 @@ app.get('/Kitchen', (req, res) => {
     })
 })
 app.post('/Placeorder',(req,res)=>{
-   db.collection('orders').insert(req.body ,(err,data)=>{
+   db.collection('orders').insertOne(req.body ,(err,data)=>{
     if (err) throw err;
     res.send('Order placed success')
    })
