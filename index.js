@@ -90,7 +90,7 @@ app.get('/Products', (req, res) => {
     if(id){
      query={product_id:id}
     }
-    db.collection('Products').find(query).toArray((err, data) => {
+    db.collection('Test').find(query).toArray((err, data) => {
         if (err) throw err;
         res.send(data)
     })
